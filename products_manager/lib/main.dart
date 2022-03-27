@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'string.dart';
-import 'dart:convert';
+import 'strings.dart';
+import 'colors.dart';
+//import 'dart:convert';
 //import 'package:http/http.dart' as http;
 void main() {
   runApp(const FirstApp());
@@ -34,8 +35,38 @@ class _ProductManagerState extends State<ProductManager> {
       appBar: AppBar(
         title: const Text(Strings.barTitle),
       ),
-      body: const Center(
-        child: Text("Hello Center"),
+      body:  Padding(
+        padding: const EdgeInsets.all(20),
+        child:  Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:  [
+            const Text(Strings.addNewProductText, style: TextStyle(
+                color: Colors.black38
+                ),
+              ),
+            Row(
+              children: const [
+                Text(
+                    Strings.productRefLabel
+                ),
+              ],
+            ),
+            Row(
+              children: const [
+                Text(
+                    Strings.productDescLabel
+                ),
+              ],
+            ),
+            Row(
+              children: const [
+                Text(
+                    Strings.productPriceLabel
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

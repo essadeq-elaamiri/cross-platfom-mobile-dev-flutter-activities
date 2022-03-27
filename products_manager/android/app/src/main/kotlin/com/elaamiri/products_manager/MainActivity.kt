@@ -1,4 +1,4 @@
-package com.elaamiri.flutter_projects
+package com.elaamiri.products_manager
 
 import io.flutter.embedding.android.FlutterActivity
 

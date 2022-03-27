@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/random_word_pairs_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,24 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // create a const variable.
     return MaterialApp(
       title: "Hello Title",
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("App bar"),
-        ),
-        body: Column(
-          children: const [
-            Text(
-              "Hello column",
-              style: TextStyle(
-                  color: Colors.blue,
-                  backgroundColor: Colors.black12,
-                  fontSize: 22),
-            ),
-          ],
-        ),
+      theme: ThemeData(
+        primaryColor: Colors.purple[900],
       ),
+      home: RandomWordsList(),
     );
   }
 }

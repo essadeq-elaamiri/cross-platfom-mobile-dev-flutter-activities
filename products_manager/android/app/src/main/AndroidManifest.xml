@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.elaamiri.flutter_projects">
+    package="com.elaamiri.products_manager">
    <application
-        android:label="flutter_projects"
+        android:label="products_manager"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

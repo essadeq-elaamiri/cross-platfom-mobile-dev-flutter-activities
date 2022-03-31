@@ -1,3 +1,3 @@
 # Cats lister
 
-![image](/screenshots/app.png)
+![image](screenshots/app.png)

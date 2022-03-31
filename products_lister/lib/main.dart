@@ -18,14 +18,14 @@ class _MyAppState extends State<MyApp> {
   }
 
   void addItem() {
-    contacts.add(controller.text);
+    contacts.add(controller.text + "  " + controller2.text + "£");
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Laptops lister")),
+        appBar: AppBar(title: Text("Cates lister")),
         body: Padding(
           padding: EdgeInsets.all(20),
           child: Column(
@@ -35,8 +35,8 @@ class _MyAppState extends State<MyApp> {
                   controller: controller,
                   maxLength: 20,
                   decoration: InputDecoration(
-                    icon: Icon(Icons.laptop_chromebook),
-                    labelText: 'Laptop price',
+                    icon: Icon(Icons.home),
+                    labelText: 'Cat Name',
                     labelStyle: TextStyle(
                       color: Color(0xFF6200EE),
                     ),
@@ -46,11 +46,11 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 TextFormField(
-                  controller: controller,
+                  controller: controller2,
                   cursorColor: Theme.of(context).cursorColor,
                   decoration: InputDecoration(
-                    icon: Icon(Icons.laptop_chromebook),
-                    labelText: 'Laptop reference',
+                    icon: Icon(Icons.currency_pound_outlined),
+                    labelText: 'Cat price',
                     labelStyle: TextStyle(
                       color: Color(0xFF6200EE),
                     ),
@@ -60,8 +60,12 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 MaterialButton(
-                    color: Colors.blueAccent,
-                    child: Icon(Icons.add),
+                    textColor: Colors.white,
+                    color: Color(0xFF6200EE),
+                    child: Icon(
+                      Icons.add,
+                      size: 26,
+                    ),
                     onPressed: () {
                       setState(() {
                         addItem();
@@ -74,6 +78,8 @@ class _MyAppState extends State<MyApp> {
                           return Card(
                             child: ListTile(
                               leading: CircleAvatar(
+                                  backgroundImage: NetworkImage(
+                                      "https://loremflickr.com/60/60"),
                                   child: Text(contacts[index].substring(0, 1))),
                               trailing: IconButton(
                                   icon: Icon(

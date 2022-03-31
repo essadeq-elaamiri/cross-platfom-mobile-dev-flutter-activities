@@ -1,3 +1,3 @@
 # Cats lister
 
-![image]("/app.png")
+![image](/app.png)

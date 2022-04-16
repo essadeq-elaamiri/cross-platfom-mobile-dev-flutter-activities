@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:global_tp/pages/about.dart';
 import 'package:global_tp/pages/contacts.dart';
 import 'package:global_tp/pages/covid.dart';
 import 'package:global_tp/pages/github_users.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         "/github_users": (context) => GitHubUsers(),
         "/news": (context) => NewsHome(), //News(),
         "/covid": (context) => CovidStatistics(),
+        "/about": (context)=>About(),
       },
     );
   }

@@ -14,6 +14,12 @@ class CategoryCardItem extends StatelessWidget {
       //********** */
       onTap: () {
         print(this.categoryName);
+        /*
+        Navigator.push(context, MaterialPageRoute(
+            builder: (context) => CategoryNews(
+              newsCategory: categoryName.toLowerCase(),
+            )
+        ));*/
       },
       child: Container(
         margin: EdgeInsets.only(right: 4, left: 4),
@@ -25,7 +31,7 @@ class CategoryCardItem extends StatelessWidget {
                 //********** */
                 borderRadius: BorderRadius.circular(6),
                 child: Image.network(
-                  defaultImageURL,
+                  cetgoryImageAssetUrl??defaultImageURL,
                   width: 120,
                   height: 60,
                   fit: BoxFit.cover,

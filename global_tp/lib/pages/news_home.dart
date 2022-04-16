@@ -76,9 +76,11 @@ class _NewsHomeState extends State<NewsHome> {
                         Container(
                           ////  articles
                           child: ListView.builder(
-                              scrollDirection: Axis.vertical,
-                              shrinkWrap: true,
+                              //scrollDirection: Axis.vertical,
+
                               itemCount: articlesList.length,
+                              shrinkWrap: true,
+                              physics: ClampingScrollPhysics(),
                               itemBuilder: (context, index) {
                                 return ArticleTile(
                                     articleImageUrl:

@@ -75,6 +75,7 @@ class _CovidStatisticsState extends State<CovidStatistics> {
                     onPressed: () {
                       showCountryPicker(
                         context: context,
+                        showWorldWide: false,
                         onSelect: (Country country) {
                           print('Select country: ${country.countryCode}');
                           setState(() {
@@ -114,83 +115,81 @@ class _CovidStatisticsState extends State<CovidStatistics> {
                     ),
                   ),
                   child: Column(
-
                     mainAxisAlignment: MainAxisAlignment.start,
-
-                    children:[ SizedBox(
-                      //width: 300,
-                      //height: 500,
-                      child: Padding(
-                        padding: const EdgeInsets.all(0.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.network("https://countryflagsapi.com/png/" +
-                                choosenCountry.countryCode),
-                            SizedBox(
-                              height: 10,
-                            ), //SizedBox
-                            Text(
-                              choosenCountry.name,
-                              style: TextStyle(
-                                fontSize: 30,
-                                color: Colors.indigo,
-                                fontWeight: FontWeight.w500,
-                              ), //Textstyle
-                            ), //Text
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Column(
-
-                              children: [
-                                Text(
-                                  'Latest update: ${countryCovidData == null ? "Unavailable" : countryCovidData["lastUpdate"]}',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black54,
+                    children: [
+                      SizedBox(
+                        //width: 300,
+                        //height: 500,
+                        child: Padding(
+                          padding: const EdgeInsets.all(0.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image.network("https://countryflagsapi.com/png/" +
+                                  choosenCountry.countryCode),
+                              SizedBox(
+                                height: 10,
+                              ), //SizedBox
+                              Text(
+                                choosenCountry.name,
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  color: Colors.indigo,
+                                  fontWeight: FontWeight.w500,
+                                ), //Textstyle
+                              ), //Text
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'Latest update: ${countryCovidData == null ? "Unavailable" : countryCovidData["lastUpdate"]}',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.black54,
+                                    ),
                                   ),
-                                ),
 
-                                SizedBox(
-                                  height: 10,
-                                ), //SizedBox
-                                Text(
-                                  'Confirmed: ${countryCovidData == null ? "Unavailable" : countryCovidData["confirmed"]["value"]}',
-                                  style: TextStyle(
-                                    fontSize: 22,
-                                    color: Colors.red[600],
+                                  SizedBox(
+                                    height: 10,
+                                  ), //SizedBox
+                                  Text(
+                                    'Confirmed: ${countryCovidData == null ? "Unavailable" : countryCovidData["confirmed"]["value"]}',
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      color: Colors.red[600],
+                                    ),
                                   ),
-                                ),
 
-                                SizedBox(
-                                  height: 10,
-                                ), //SizedBox
-                                Text(
-                                  'Recovered: ${(countryCovidData == null ? "Unavailable" : countryCovidData["recovered"]["value"])}',
-                                  style: TextStyle(
-                                    fontSize: 22,
-                                    color: Colors.green[600],
+                                  SizedBox(
+                                    height: 10,
+                                  ), //SizedBox
+                                  Text(
+                                    'Recovered: ${(countryCovidData == null ? "Unavailable" : countryCovidData["recovered"]["value"])}',
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      color: Colors.green[600],
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ), //SizedBox
-                                Text(
-                                  'Deaths: ${(countryCovidData == null ? "Unavailable" : countryCovidData["deaths"]["value"])}',
-                                  style: TextStyle(
-                                    fontSize: 22,
-                                    color: Colors.red[600],
+                                  SizedBox(
+                                    height: 10,
+                                  ), //SizedBox
+                                  Text(
+                                    'Deaths: ${(countryCovidData == null ? "Unavailable" : countryCovidData["deaths"]["value"])}',
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      color: Colors.red[600],
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            //SizedBox
-
-                          ],
+                                ],
+                              ),
+                              //SizedBox
+                            ],
+                          ),
                         ),
-                      ),
-                    )],
+                      )
+                    ],
                   ),
                 ),
               ),

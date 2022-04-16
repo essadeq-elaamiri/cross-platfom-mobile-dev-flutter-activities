@@ -6,6 +6,7 @@ import 'package:global_tp/pages/covid.dart';
 import 'package:global_tp/pages/github_users.dart';
 import 'package:global_tp/pages/home.dart';
 import 'package:global_tp/pages/news.dart';
+import 'package:global_tp/pages/news_home.dart';
 
 void main() {
   HttpOverrides.global = new MyHttpOverrides();
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => Home(),
         "/contacts": (context) => Contacts(),
         "/github_users": (context) => GitHubUsers(),
-        "/news": (context) => Contacts(), //News(),
+        "/news": (context) => NewsHome(), //News(),
         "/covid": (context) => CovidStatistics(),
       },
     );

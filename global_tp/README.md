@@ -50,3 +50,11 @@ void main() {
   runApp(MyApp());
 }
 ```
+
+#### Detecting emilator by VSCode!
+
+```diff
+> $ adb connect 127.0.0.1:62001
+connected to 127.0.0.1:62001
+
+```

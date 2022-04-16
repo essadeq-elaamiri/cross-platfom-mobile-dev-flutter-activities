@@ -58,3 +58,10 @@ void main() {
 connected to 127.0.0.1:62001
 
 ```
+
+### screenshots
+
+| ![sidebar](screenshots/drawer.png)   | ![sidebar](screenshots/contacts.png)   | ![sidebar](screenshots/github_users.png)   |
+| ------------------------------------ | -------------------------------------- | ------------------------------------------ |
+| ![sidebar](screenshots/newsapp.png)  | ![sidebar](screenshots/covid19_ma.png) | ![sidebar](screenshots/country_picker.png) |
+| ![sidebar](screenshots/covid_fr.png) | ![sidebar](screenshots/covid_fr.png)   |                                            |

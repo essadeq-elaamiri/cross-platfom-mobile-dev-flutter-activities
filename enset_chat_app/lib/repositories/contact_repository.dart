@@ -3,12 +3,6 @@ import 'dart:io';
 
 import 'package:enset_chat_app/models/contacr_model.dart';
 
-enum GroupType {
-  personal,
-  professional,
-  other,
-}
-
 class ContactRepository {
   // getting data
 

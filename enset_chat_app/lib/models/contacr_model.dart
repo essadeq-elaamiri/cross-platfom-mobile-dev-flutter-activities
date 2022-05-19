@@ -19,3 +19,5 @@ class Contact {
     profile = json['profile'];
   }
 }
+
+enum GroupType { personal, professional, other, none }

@@ -19,7 +19,7 @@ class ContactPage extends StatelessWidget {
       )),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: this.selectedGroupType.index,
+        currentIndex: selectedGroupType.index,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.group)),
           BottomNavigationBarItem(icon: Icon(Icons.home_filled)),

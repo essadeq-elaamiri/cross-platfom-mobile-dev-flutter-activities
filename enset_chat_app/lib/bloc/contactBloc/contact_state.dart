@@ -8,6 +8,6 @@ abstract class ContactState {}
 class ContactInitial extends ContactState {
   List<Contact> contastsList;
   RequestState requestState;
-  String? message;
-  ContactInitial({required this.contastsList, required this.requestState, this.message})
+  String? erroMessage;
+  ContactInitial({required this.contastsList, required this.requestState, this.erroMessage})
 }

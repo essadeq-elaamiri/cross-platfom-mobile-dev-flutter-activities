@@ -1,15 +1,16 @@
+import 'package:enset_chat_app/bloc/contactBloc/contact_bloc.dart';
 import 'package:enset_chat_app/models/contacr_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ContactPage extends StatelessWidget {
-  const ContactPage({Key? key}) : super(key: key);
   GroupType selectedGroupType = GroupType.none;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Contacts"),
+        title: const Text("Contacts"),
       ),
       body: Container(
           child: Column(
@@ -20,13 +21,19 @@ class ContactPage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: selectedGroupType.index,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.group)),
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled)),
-          BottomNavigationBarItem(icon: Icon(Icons.work)),
-          BottomNavigationBarItem(icon: Icon(Icons.outdoor_grill_sharp)),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.group), label: "All"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home_filled), label: "Personal"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.work), label: "Professional"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.outdoor_grill_sharp), label: "Other"),
         ],
         onTap: (int index) {
+          //context.read<ContactBloc>()
+          BlocProvider.of<ContactBloc>(context)
+              .add(loadContactsByGroupEvent(group: GroupType.values[index]));
           print(index);
         },
       ),

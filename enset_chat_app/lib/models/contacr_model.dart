@@ -20,4 +20,4 @@ class Contact {
   }
 }
 
-enum GroupType { personal, professional, other, none }
+enum GroupType { none, personal, professional, other }

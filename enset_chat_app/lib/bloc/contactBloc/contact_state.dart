@@ -9,5 +9,8 @@ class ContactInitial extends ContactState {
   List<Contact> contastsList;
   RequestState requestState;
   String? erroMessage;
-  ContactInitial({required this.contastsList, required this.requestState, this.erroMessage})
+  ContactInitial(
+      {required this.contastsList,
+      required this.requestState,
+      this.erroMessage});
 }

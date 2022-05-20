@@ -39,24 +39,29 @@ class ContactPage extends StatelessWidget {
           ),
         ],
       )),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: selectedGroupType.index,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.group), label: "All"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled), label: "Personal"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.work), label: "Professional"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.outdoor_grill_sharp), label: "Other"),
-        ],
-        onTap: (int index) {
-          //context.read<ContactBloc>()
-          BlocProvider.of<ContactBloc>(context)
-              .add(loadContactsByGroupEvent(group: GroupType.values[index]));
+      bottomNavigationBar: BlocBuilder<ContactBloc, ContactState>(
+        builder: (context, state) {
+          return BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: selectedGroupType.index,
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.group), label: "All"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home_filled), label: "Personal"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.work), label: "Professional"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.outdoor_grill_sharp), label: "Other"),
+            ],
+            onTap: (int index) {
+              //context.read<ContactBloc>()
+              selectedGroupType = GroupType.values[index];
+              BlocProvider.of<ContactBloc>(context)
+                  .add(loadContactsByGroupEvent(group: selectedGroupType));
 
-          //print(GroupType.values[index]);
+              //print(GroupType.values[index]);
+            },
+          );
         },
       ),
     );

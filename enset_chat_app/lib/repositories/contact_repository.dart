@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:enset_chat_app/models/contacr_model.dart';
 import 'package:flutter/services.dart';
@@ -14,11 +15,16 @@ class ContactRepository {
   }
 
   Future<List<Contact>> getContatctsByGroup({required GroupType group}) async {
-    print(group);
+    //print(group);
     var delayFuture = Future.delayed(const Duration(seconds: 6));
-    return (await loadData())
-        .where((contact) => (contact.group == group))
-        .toList();
+    List<Contact> loadedData = await loadData();
+    //print("Filtered data: ${loadedData}");
+    List<Contact> filteredByGroup = loadedData.where((contact) {
+      //print("List groupes${contact.group}");
+      return contact.group == group;
+    }).toList();
+    //print("Filtered data: ${filteredByGroup}");
+    return filteredByGroup;
   }
 
   Future<List<Contact>> loadData() async {

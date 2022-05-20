@@ -28,12 +28,11 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
 
           List<Contact> contactsList =
               await contactRepository.getContatctsByGroup(group: (event).group);
-          print(contactsList.isEmpty);
+          //print("getContatctsByGroup bloc : ${contactsList.isEmpty}");
+          //print("getContatctsByGroup bloc : ${contactsList}");
+
           emit(ContactState(
               contastsList: contactsList, requestState: RequestState.loaded));
-          print(ContactState(
-                  contastsList: contactsList, requestState: RequestState.loaded)
-              .contastsList);
         }
       }
     });

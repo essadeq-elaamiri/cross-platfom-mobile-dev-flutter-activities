@@ -2,6 +2,18 @@ part of 'contact_bloc.dart';
 
 enum RequestState { loaded, loading, error, none }
 
+class ContactState {
+  List<Contact> contastsList;
+  RequestState requestState;
+  String? erroMessage;
+  ContactState(
+      {required this.contastsList,
+      required this.requestState,
+      this.erroMessage});
+  @override
+  List<Object> get props => [contastsList, requestState, erroMessage ?? ""];
+}
+/*
 @immutable
 abstract class ContactState {}
 
@@ -13,4 +25,7 @@ class ContactInitial extends ContactState {
       {required this.contastsList,
       required this.requestState,
       this.erroMessage});
+  @override
+  List<Object> get props => [contastsList, requestState, erroMessage ?? ""];
 }
+*/

@@ -13,21 +13,23 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
       : super(contactState) {
     on<ContactEvent>((event, emit) async {
       if (event is loadContactsByGroupEvent) {
+        //print(event.group);
         if ((event).group == GroupType.none) {
-          emit(ContactInitial(
+          emit(ContactState(
               contastsList: [], requestState: RequestState.loading));
 
           List<Contact> contactsList =
               await contactRepository.getAllContatcts();
-          emit(ContactInitial(
+          emit(ContactState(
               contastsList: contactsList, requestState: RequestState.loaded));
         } else {
-          emit(ContactInitial(
+          emit(ContactState(
               contastsList: [], requestState: RequestState.loading));
 
           List<Contact> contactsList =
               await contactRepository.getContatctsByGroup(group: (event).group);
-          emit(ContactInitial(
+          //print(contactsList.isEmpty);
+          emit(ContactState(
               contastsList: contactsList, requestState: RequestState.loaded));
         }
       }

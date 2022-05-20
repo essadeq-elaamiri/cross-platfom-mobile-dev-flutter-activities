@@ -15,7 +15,28 @@ class ContactPage extends StatelessWidget {
       body: Container(
           child: Column(
         children: [
-          Row(),
+          Expanded(
+            child: BlocBuilder<ContactBloc, ContactState>(
+              bloc: context.read<ContactBloc>(),
+              builder: (context, state) {
+                return ListView.builder(
+                  itemCount: state.contastsList.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: ListTile(
+                        leading: CircleAvatar(
+                            child: Text(state.contastsList[index].name?[0] ??
+                                "no name")),
+                        title:
+                            Text(state.contastsList[index].name ?? "no name"),
+                      ),
+                      margin: EdgeInsets.all(5.0),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
         ],
       )),
       bottomNavigationBar: BottomNavigationBar(
@@ -34,7 +55,8 @@ class ContactPage extends StatelessWidget {
           //context.read<ContactBloc>()
           BlocProvider.of<ContactBloc>(context)
               .add(loadContactsByGroupEvent(group: GroupType.values[index]));
-          print(index);
+
+          //print(GroupType.values[index]);
         },
       ),
     );

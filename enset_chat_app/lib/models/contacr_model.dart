@@ -15,7 +15,10 @@ class Contact {
   Contact.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    group = json['group'];
+    group = GroupType.values.contains("GroupType.${json['group']}")
+        ? GroupType.values.firstWhere(
+            (element) => element.toString() == "GroupType.${json['group']}")
+        : GroupType.none;
     profile = json['profile'];
   }
 }

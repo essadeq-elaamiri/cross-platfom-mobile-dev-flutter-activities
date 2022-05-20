@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
               create: (context) => ContactBloc(
-                  ContactInitial(
+                  ContactState(
                       contastsList: [],
                       requestState: RequestState.none,
                       erroMessage: ""),

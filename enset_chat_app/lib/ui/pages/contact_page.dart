@@ -80,6 +80,10 @@ class ContactPage extends StatelessWidget {
                                 "no name")),
                         title:
                             Text(state.contastsList[index].name ?? "no name"),
+                        onTap: () {
+                          Navigator.pushNamed(context, "/conversation",
+                              arguments: state.contastsList[index]);
+                        },
                       ),
                       margin: EdgeInsets.all(5.0),
                     );

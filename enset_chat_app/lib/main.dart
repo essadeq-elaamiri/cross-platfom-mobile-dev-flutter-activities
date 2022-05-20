@@ -1,4 +1,5 @@
 import 'package:enset_chat_app/models/contacr_model.dart';
+import 'package:enset_chat_app/ui/pages/conversation_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:enset_chat_app/bloc/contactBloc/contact_bloc.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(primarySwatch: Colors.orange),
           routes: {
             "/contacts": (context) => ContactPage(),
+            "/conversation": (context) => ConversationPage(),
           },
           initialRoute: "/contacts",
         ));

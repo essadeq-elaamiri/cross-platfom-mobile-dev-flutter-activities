@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:enset_chat_app/bloc/contactBloc/contact_bloc.dart';
 import 'package:enset_chat_app/repositories/contact_repository.dart';
 import 'package:enset_chat_app/ui/pages/contact_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());

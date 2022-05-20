@@ -14,12 +14,10 @@ class ContactRepository {
   }
 
   Future<List<Contact>> getContatctsByGroup({required GroupType group}) async {
+    print(group);
     var delayFuture = Future.delayed(const Duration(seconds: 6));
     return (await loadData())
-        .where((contact) =>
-            GroupType.values.firstWhere((element) =>
-                element.toString() == "GroupType.${contact.group}") ==
-            group)
+        .where((contact) => (contact.group == group))
         .toList();
   }
 

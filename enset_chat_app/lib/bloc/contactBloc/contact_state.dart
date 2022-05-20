@@ -5,10 +5,12 @@ enum RequestState { loaded, loading, error, none }
 class ContactState {
   List<Contact> contastsList;
   RequestState requestState;
+  ContactEvent lastEvent;
   String? erroMessage;
   ContactState(
       {required this.contastsList,
       required this.requestState,
+      required this.lastEvent,
       this.erroMessage});
   @override
   List<Object> get props => [contastsList, requestState, erroMessage ?? ""];

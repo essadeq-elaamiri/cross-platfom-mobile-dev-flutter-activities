@@ -8,9 +8,16 @@ class ContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // list at initial state
+    BlocProvider.of<ContactBloc>(context)
+        .add(loadContactsByGroupEvent(group: selectedGroupType));
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Contacts"),
+        title: BlocBuilder<ContactBloc, ContactState>(
+          builder: (context, state) {
+            return Text("Contacts");
+          },
+        ),
       ),
       body: Container(
           child: Column(
@@ -19,6 +26,43 @@ class ContactPage extends StatelessWidget {
             child: BlocBuilder<ContactBloc, ContactState>(
               bloc: context.read<ContactBloc>(),
               builder: (context, state) {
+                if (state.requestState == RequestState.loading) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (state.requestState == RequestState.error) {
+                  return Center(
+                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.railway_alert_rounded,
+                        color: Colors.red,
+                        size: 100,
+                      ),
+                      Text(
+                        state.erroMessage ?? "Error: no description provided",
+                        style: TextStyle(
+                            color: Colors.orange,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 23),
+                      ),
+                      ElevatedButton.icon(
+                          onPressed: () {
+                            return null;
+                          },
+                          icon: Icon(
+                            Icons.replay_outlined,
+                            color: Colors.white,
+                          ),
+                          label: Text(
+                            "Reload",
+                            style: TextStyle(color: Colors.white),
+                          ))
+                    ],
+                  ));
+                }
                 return ListView.builder(
                   itemCount: state.contastsList.length,
                   itemBuilder: (context, index) {

@@ -10,13 +10,14 @@ class ContactRepository {
   final String dataSourcePath = "/lib/database/contacts.json";
   Future<List<Contact>> getAllContatcts() async {
     // simulating a delay (waiting) just to see the progress bar hh
-    var delayFuture = Future.delayed(const Duration(seconds: 6));
+    //var delayFuture = Future.delayed(const Duration(seconds: 30));
+
     return await loadData();
   }
 
   Future<List<Contact>> getContatctsByGroup({required GroupType group}) async {
     //print(group);
-    var delayFuture = Future.delayed(const Duration(seconds: 6));
+    //var delayFuture = Future.delayed(const Duration(seconds: 6));
     List<Contact> loadedData = await loadData();
     //print("Filtered data: ${loadedData}");
     List<Contact> filteredByGroup = loadedData.where((contact) {
@@ -24,7 +25,11 @@ class ContactRepository {
       return contact.group == group;
     }).toList();
     //print("Filtered data: ${filteredByGroup}");
-    return filteredByGroup;
+    if (Random().nextDouble() < (40 / 100)) {
+      throw Exception("Loading problem !");
+    }
+    return Future.delayed(const Duration(seconds: 1)) // just to simulate delay
+        .then((value) => filteredByGroup);
   }
 
   Future<List<Contact>> loadData() async {

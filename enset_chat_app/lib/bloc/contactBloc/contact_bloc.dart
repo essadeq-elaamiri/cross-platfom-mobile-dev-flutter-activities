@@ -16,23 +16,39 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
         //print(event.group);
         if ((event).group == GroupType.none) {
           emit(ContactState(
-              contastsList: [], requestState: RequestState.loading));
+              contastsList: [],
+              requestState: RequestState.loading,
+              lastEvent: event));
 
           List<Contact> contactsList =
               await contactRepository.getAllContatcts();
           emit(ContactState(
-              contastsList: contactsList, requestState: RequestState.loaded));
+              contastsList: contactsList,
+              requestState: RequestState.loaded,
+              lastEvent: event));
         } else {
           emit(ContactState(
-              contastsList: [], requestState: RequestState.loading));
+              contastsList: [],
+              requestState: RequestState.loading,
+              lastEvent: event));
 
-          List<Contact> contactsList =
-              await contactRepository.getContatctsByGroup(group: (event).group);
-          //print("getContatctsByGroup bloc : ${contactsList.isEmpty}");
-          //print("getContatctsByGroup bloc : ${contactsList}");
+          try {
+            List<Contact> contactsList = await contactRepository
+                .getContatctsByGroup(group: (event).group);
+            //print("getContatctsByGroup bloc : ${contactsList.isEmpty}");
+            //print("getContatctsByGroup bloc : ${contactsList}");
 
-          emit(ContactState(
-              contastsList: contactsList, requestState: RequestState.loaded));
+            emit(ContactState(
+                contastsList: contactsList,
+                requestState: RequestState.loaded,
+                lastEvent: event));
+          } catch (e) {
+            emit(ContactState(
+                contastsList: [],
+                requestState: RequestState.error,
+                lastEvent: event,
+                erroMessage: e.toString()));
+          }
         }
       }
     });

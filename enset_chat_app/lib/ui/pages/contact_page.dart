@@ -37,9 +37,12 @@ class ContactPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        Icons.railway_alert_rounded,
+                        Icons.error,
                         color: Colors.red,
                         size: 100,
+                      ),
+                      SizedBox(
+                        height: 21,
                       ),
                       Text(
                         state.erroMessage ?? "Error: no description provided",
@@ -48,9 +51,13 @@ class ContactPage extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                             fontSize: 23),
                       ),
+                      SizedBox(
+                        height: 21,
+                      ),
                       ElevatedButton.icon(
                           onPressed: () {
-                            return null;
+                            BlocProvider.of<ContactBloc>(context)
+                                .add(state.lastEvent);
                           },
                           icon: Icon(
                             Icons.replay_outlined,

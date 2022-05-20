@@ -1,3 +1,4 @@
+import 'package:enset_chat_app/models/contacr_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:enset_chat_app/bloc/contactBloc/contact_bloc.dart';
@@ -21,6 +22,8 @@ class MyApp extends StatelessWidget {
                   ContactState(
                       contastsList: [],
                       requestState: RequestState.none,
+                      lastEvent:
+                          loadContactsByGroupEvent(group: GroupType.none),
                       erroMessage: ""),
                   ContactRepository()))
         ],

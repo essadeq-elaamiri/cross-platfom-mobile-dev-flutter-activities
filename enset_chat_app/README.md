@@ -24,3 +24,5 @@ to do
 - [x] On click a contact show list of messages
 - [x] Messages ui
 - [ ] sending message progress
+- [ ] authentication
+- [ ] using database

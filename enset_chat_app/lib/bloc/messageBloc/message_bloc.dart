@@ -17,27 +17,31 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
       if (event is MessageEvent) {
         print("Messadesbloc:${event}");
         if (event is getConversationEvent) {
-          print("Messadesbloc:${event.senderContact.name}");
-          print("Messadesbloc:${event.recieverContact.name}");
+          try {
+            print("Messadesbloc:${event.senderContact.name}");
+            print("Messadesbloc:${event.recieverContact.name}");
 
-          emit(MessageState(
-              messagesList: [],
-              requestState: RequestState.loading,
-              lastEvent: event));
+            emit(MessageState(
+                messagesList: [],
+                requestState: RequestState.loading,
+                lastEvent: event));
 
-          List<Message> messages1 =
-              await messageRepository.getCoversationMessages(
-                  event.senderContact.id!, event.recieverContact.id!);
-          List<Message> messages2 =
-              await messageRepository.getCoversationMessages(
-                  event.recieverContact.id!, event.senderContact.id!);
-          messages1.addAll(messages2);
-          emit(MessageState(
-              messagesList: messages1,
-              requestState: RequestState.loaded,
-              lastEvent: event));
+            List<Message> messages1 =
+                await messageRepository.getCoversationMessages(
+                    event.senderContact.id!, event.recieverContact.id!);
+            List<Message> messages2 =
+                await messageRepository.getCoversationMessages(
+                    event.recieverContact.id!, event.senderContact.id!);
+            //messages1.addAll(messages2);
+            List<Message> allMesssages = [];
+            allMesssages.addAll(messages1);
+            allMesssages.addAll(messages2);
 
-          try {} catch (e) {
+            emit(MessageState(
+                messagesList: allMesssages,
+                requestState: RequestState.loaded,
+                lastEvent: event));
+          } catch (e) {
             emit(MessageState(
                 messagesList: [],
                 requestState: RequestState.error,

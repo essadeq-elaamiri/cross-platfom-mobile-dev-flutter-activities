@@ -51,32 +51,32 @@ class MessageRepository {
   "id": 1,
   "content": "libero ut massa volutpat convallis morbi odio odio elementum",
   "dateTime": 163000300950919,
-  "sourceContactId": 3,
-  "destinationContactId": 11
+  "sourceContactId": 1,
+  "destinationContactId": 2
 }, {
   "id": 2,
   "content": "faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec",
   "dateTime": 158929593886156,
-  "sourceContactId": 9,
-  "destinationContactId": 11
+  "sourceContactId": 2,
+  "destinationContactId": 1
 }, {
   "id": 3,
   "content": "nulla facilisi cras non velit nec nisi vulputate",
   "dateTime": 138702817250993,
-  "sourceContactId": 8,
-  "destinationContactId": 10
+  "sourceContactId": 2,
+  "destinationContactId": 1
 }, {
   "id": 4,
   "content": "quis augue luctus tincidunt nulla mollis molestie lorem quisque ut",
   "dateTime": 152018307658374,
-  "sourceContactId": 7,
-  "destinationContactId": 12
+  "sourceContactId": 1,
+  "destinationContactId": 2
 }, {
   "id": 5,
   "content": "pede malesuada in imperdiet",
   "dateTime": 122236443708730,
-  "sourceContactId": 13,
-  "destinationContactId": 11
+  "sourceContactId": 2,
+  "destinationContactId": 1
 }, {
   "id": 6,
   "content": "erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam",

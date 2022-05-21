@@ -1,4 +1,6 @@
 import 'package:enset_chat_app/bloc/contactBloc/contact_bloc.dart';
+import 'package:enset_chat_app/bloc/messageBloc/message_bloc.dart';
+import 'package:enset_chat_app/main.dart';
 import 'package:enset_chat_app/models/contacr_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -80,6 +82,17 @@ class ContactPage extends StatelessWidget {
                                 "no name")),
                         title:
                             Text(state.contastsList[index].name ?? "no name"),
+                        onTap: () {
+                          // sending the event
+                          BlocProvider.of<MessageBloc>(context).add(
+                              getConversationEvent(
+                                  senderContact: MyApp.userContact,
+                                  recieverContact: state.contastsList[index]));
+                          Navigator.pushNamed(context, "/conversation",
+                              arguments: {
+                                'clickedContact': state.contastsList[index]
+                              });
+                        },
                       ),
                       margin: EdgeInsets.all(5.0),
                     );

@@ -82,7 +82,9 @@ class ContactPage extends StatelessWidget {
                             Text(state.contastsList[index].name ?? "no name"),
                         onTap: () {
                           Navigator.pushNamed(context, "/conversation",
-                              arguments: state.contastsList[index]);
+                              arguments: {
+                                'clickedContact': state.contastsList[index]
+                              });
                         },
                       ),
                       margin: EdgeInsets.all(5.0),

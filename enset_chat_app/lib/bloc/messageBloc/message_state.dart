@@ -8,9 +8,12 @@ class MessageState {
 
   List<Message> messagesList;
   RequestState requestState;
-  MessageEvent lastEvent;
+  MessageEvent? lastEvent;
   String? errorMessage;
 
-  MessageState({required this.messagesList, required this.requestState,required this.lastEvent, this.errorMessage})
-
+  MessageState(
+      {required this.messagesList,
+      required this.requestState,
+      this.lastEvent,
+      this.errorMessage});
 }

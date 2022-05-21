@@ -23,7 +23,8 @@ class MessageRepository {
   }
 
   // get Message send
-  Future<List<Message>> getMessage(int senderId, int recieverId) async {
+  Future<List<Message>> getCoversationMessages(
+      int senderId, int recieverId) async {
     if (senderId == recieverId)
       throw Exception("Sender and Reciever can not be the same!");
 

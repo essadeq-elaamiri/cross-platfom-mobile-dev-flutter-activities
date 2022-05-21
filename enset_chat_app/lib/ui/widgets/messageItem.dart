@@ -10,18 +10,23 @@ class MessageItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.all(15.0),
       child: Column(
         children: [
-          Text(
-            "You",
-            style:
-                TextStyle(color: Colors.black12, fontWeight: FontWeight.bold),
+          Align(
+            child: Text(
+              currentContact.name!,
+              style:
+                  TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
+            ),
+            alignment: Alignment.centerLeft,
           ),
+          SizedBox(height: 12),
           Text(message.content ?? "No content"),
           SizedBox(
             height: 10,
           ),
-          Text(message.dateTime!.toIso8601String().toString()),
+          Align(x),
         ],
       ),
     );

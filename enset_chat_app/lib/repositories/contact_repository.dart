@@ -49,12 +49,7 @@ class ContactRepository {
     });
     */
     String jsonString = '''[
-    {
-        "id": 1,
-        "name": "Rica Lintall",
-        "group": "other",
-        "profile": "http://dummyimage.com/222x100.png/5fa2dd/ffffff"
-    },
+   
     {
         "id": 2,
         "name": "Colin Hutable",

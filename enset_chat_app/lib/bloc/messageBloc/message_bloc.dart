@@ -15,7 +15,11 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
     on<MessageEvent>((event, emit) async {
       // TODO: implement event handler
       if (event is MessageEvent) {
+        print("Messadesbloc:${event}");
         if (event is getConversationEvent) {
+          print("Messadesbloc:${event.senderContact.name}");
+          print("Messadesbloc:${event.recieverContact.name}");
+
           emit(MessageState(
               messagesList: [],
               requestState: RequestState.loading,

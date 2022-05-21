@@ -1,5 +1,6 @@
 import 'package:enset_chat_app/bloc/contactBloc/contact_bloc.dart';
 import 'package:enset_chat_app/bloc/messageBloc/message_bloc.dart';
+import 'package:enset_chat_app/models/contacr_model.dart';
 import 'package:enset_chat_app/ui/widgets/messageItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,11 +13,13 @@ class ConversationPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Messages"),
+        title: Text(
+            "My messages with ${(arguments['clickedContact'] as Contact).name}"),
       ),
       body: BlocBuilder<MessageBloc, MessageState>(
         bloc: context.read<MessageBloc>(),
         builder: (context, state) {
+          print(state.messagesList);
           if (state.requestState == RequestState.loading) {
             return Center(
               child: CircularProgressIndicator(),
@@ -64,15 +67,19 @@ class ConversationPage extends StatelessWidget {
           }
 
           return Container(
-            child: Expanded(
-              child: ListView.builder(
-                itemCount: state.messagesList.length,
-                itemBuilder: (context, index) {
-                  return MessageItem(
-                      message: state.messagesList[index],
-                      currentContact: arguments['clickedContact']);
-                },
-              ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: state.messagesList.length,
+                    itemBuilder: (context, index) {
+                      return MessageItem(
+                          message: state.messagesList[index],
+                          currentContact: arguments['clickedContact']);
+                    },
+                  ),
+                ),
+              ],
             ),
           );
         },

@@ -9,8 +9,15 @@ class MessageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var messageBackgroundColor = message.sourceContactId == currentContact
+        ? Color.fromARGB(255, 187, 255, 227)
+        : Color.fromARGB(255, 196, 217, 255);
+    var margin = message.sourceContactId == currentContact
+        ? EdgeInsets.only(left: 15.0, right: 40.0, bottom: 50.0, top: 20.0)
+        : EdgeInsets.only(left: 40.0, right: 15.0, bottom: 50.0, top: 20.0);
     return Card(
-      margin: EdgeInsets.all(15.0),
+      color: messageBackgroundColor,
+      margin: margin,
       child: Column(
         children: [
           Align(
@@ -22,11 +29,20 @@ class MessageItem extends StatelessWidget {
             alignment: Alignment.centerLeft,
           ),
           SizedBox(height: 12),
-          Text(message.content ?? "No content"),
+          Align(
+            child: Text(message.content ?? "No content"),
+            alignment: Alignment.centerLeft,
+          ),
           SizedBox(
             height: 10,
           ),
-          Align(x),
+          Align(
+            child: Text(
+              message.dateTime.toString(),
+              style: TextStyle(color: Colors.black12, fontSize: 14),
+            ),
+            alignment: Alignment.bottomRight,
+          ),
         ],
       ),
     );

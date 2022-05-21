@@ -1,25 +1,19 @@
 # enset_chat_app
 
-A new Flutter project.
+**Screenshots**
+All contacts
 
-## Getting Started
+![all contacts]()
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Contacts of 'Professional' group
+![Professional]()
 
 to do
 
-- [ ] Message repo impl
-- [ ] bloc impl
-- [ ] Navgate to conversation
-- [ ] Conversation page
-- [ ] On click a contact show list of messages
+- [x] Message repo impl
+- [x] bloc impl
+- [x] Navgate to conversation
+- [x] Conversation page
+- [x] On click a contact show list of messages
+- [x] Messages ui
 - [ ] sending message progress

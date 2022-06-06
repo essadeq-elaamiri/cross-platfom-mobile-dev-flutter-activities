@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class MessageItem extends StatelessWidget {
   Message message;
-  Contact currentContact;
-  MessageItem({required this.message, required this.currentContact});
+  String currentContactName;
+  MessageItem({required this.message, required this.currentContactName});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class MessageItem extends StatelessWidget {
           children: [
             Align(
               child: Text(
-                currentContact.name!,
+                currentContactName,
                 style: TextStyle(
                     color: Colors.orange, fontWeight: FontWeight.bold),
               ),
